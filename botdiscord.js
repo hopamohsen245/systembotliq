@@ -484,7 +484,7 @@ client.on('message',  message => {
 });
 //////////////////////////////////////-(اعطاء الرتبة)-//////////////////////////////////////
 client.on('guildMemberAdd', member => {
-if(member.guild.id === "4980784319725568") {
+if(member.guild.id === "515310503497695248") {
 let role = member.guild.roles.find(r => r.name === "liquidits");
 member.addRole(role).catch(e => console.log(`Error Detected: ${e.message}`));
 }
@@ -629,7 +629,7 @@ client.on('message',function(message) {
     let toKick = message.mentions.users.first();
     let toReason = message.content.split(" ").slice(2).join(" ");
     let toEmbed = new Discord.RichEmbed()
-   if(message.content.startsWith('&kick')) {
+   if(message.content.startsWith('Lkick')) {
        if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply('**# - You dont have enough permissions!**');
        if(toKick.bannable) return message.reply("**# - I cannot kick someone with a higher role than me!**");
        if(!toReason) return message.reply("**# - Supply a reason!**")
@@ -652,7 +652,7 @@ client.on('message',function(message) {
     let toBan = message.mentions.users.first();
     let toReason = message.content.split(" ").slice(2).join(" ");
     let toEmbed = new Discord.RichEmbed()
-   if(message.content.startsWith("&ban")) {
+   if(message.content.startsWith("Lban")) {
        if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("**# - You dont have enough permissions!**");
        if(!toBan) return message.reply("**# - Mention a user!**");
        if(toBan.id === ("447121312960479242")) return message.reply("**# You cannot ban me!**");
@@ -715,7 +715,7 @@ client.on('message', async message => {
             text = co.first().content
 
               message.channel.send(`•# Done We Will Do It Soon ${message.author}`)
-                client.channels.get("501832707764912138").send(`**# - New Suggest By:**${message.author}
+                client.channels.get("516329429405007895").send(`**# - New Suggest By:**${message.author}
  ${text}`)
 
               })
@@ -723,20 +723,22 @@ client.on('message', async message => {
           }) 
 ///////////////////////////////////////////////////////////////-(كود التقديم)-///////////////////////////////////////////////////////////////
 client.on("message", message => {
-            if(message.content.startsWith("&sub")) {
+            if(message.content.startsWith("Lsub")) {//هنا بقا منطقة التقديم
         if(!message.channel.guild) return;
                 if(message.author.bot) return;
-        let channel = message.guild.channels.find("name", "submints")
+        let channel = message.guild.channels.find("name", "تقديم-علي-رتب")
             if(!channel) return message.reply("**# - No Room Come Later**")
             if(channel) {
             message.channel.send( message.member + ', **:timer:**').then( (m) =>{
-              m.edit( message.member + ', **# - أسمك أو لقبك🕺🏼**' )
+              m.edit( message.member + ', **# - أسمك أو لقبك🕺🏼**' )// 
+//سؤال رقم واحد
               m.channel.awaitMessages( m1 => m1.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m1) => {
                   m1 = m1.first();
                   var name = m1.content;
                   m1.delete();
                   m.edit(message.member + ', **:timer:**').then( (m) =>{
                       m.edit( message.member + ', **# - وش بتفيد السيرفر؟🎓**' )
+//2
                       setTimeout(() => {
                         m.delete()
                       }, 10000);
@@ -745,7 +747,8 @@ client.on("message", message => {
                           var age = m2.content;
                           m2.delete()
                           message.channel.send( message.member + ', **:timer:**').then( (m) =>{
-                            m.edit( message.member + ', **# - ليش تبي الرتبة😾**' )
+                            m.edit( message.member + ', **# - ليش تبي الرتبة😾**' )//
+//3
                             setTimeout(() => {
                               m.delete()
                             }, 10000);
@@ -754,7 +757,8 @@ client.on("message", message => {
                                 var ask = m3.content;
                                 m3.delete();
                                 message.channel.send( message.member + ', **:timer:**').then( (m) =>{
-                                  m.edit( message.member + ', **# - بتحترم القوانين📑**' )
+                                  m.edit( message.member + ', **# - بتحترم القوانين📑**' )//
+//4
                                   setTimeout(() => {
                                     m.delete()
                                   }, 10000);
@@ -764,6 +768,7 @@ client.on("message", message => {
                                       m4.delete();
                                       message.channel.send( message.member + ', **:timer:**').then( (m) =>{
                                         m.edit( message.member + ', **# - ماهي وجهة نظرك على السيرفر🧐**' )
+//5
                                         m.channel.awaitMessages( m1 => m1.author == message.author,{ maxMatches: 1, time: 60*1000 } ).then ( (m5) => {
                                             m5 = m5.first();
                                             var ask3 = m5.content;
@@ -773,11 +778,11 @@ client.on("message", message => {
                           let embed = new Discord.RichEmbed()
                         .setColor('RED')
                         .setTitle(`**# - New SubMint | تقديم جديد**`)
-                        .addField('**`الاسم`**', `${name}` , true)
-                        .addField('**`وش بيفيد السيرفر؟`**', `${age}` , true)
-                        .addField('**`ليش يبي الرتبة؟`**',`${ask}`)
-                        .addField('**`هل سيحترم القوانين ؟`**',`${ask2}`)
-                        .addField('**`وجهة نظره`**',`${ask3}`)
+                        .addField('**`السؤال الاول`**', `${name}` , true)
+                        .addField('**`السؤال الثاني`**', `${age}` , true)
+                        .addField('**`السؤال الثالث`**',`${ask}`)
+                        .addField('**`السؤال الرابع`**',`${ask2}`)
+                        .addField('**`السؤال الخامس`**',`${ask3}`)
                         .setFooter(message.author.username,'https://images-ext-2.discordapp.net/external/JpyzxW2wMRG2874gSTdNTpC_q9AHl8x8V4SMmtRtlVk/https/orcid.org/sites/default/files/files/ID_symbol_B-W_128x128.gif')
                         channel.send(embed)
                         }, 2500);
